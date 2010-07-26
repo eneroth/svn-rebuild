@@ -17,13 +17,13 @@ A script that automatically finds all SVN directiories under the current directo
 Usage
 ---
 Example:
-  python3 svn-rebuild.py
+	$ python3 svn-rebuild.py
   
 As part of other script:
-  #!/bin/bash
-  git pull
+	#!/bin/bash
+	git pull
+	
+	python3 svn-rebuild.py
   
-  python3 svn-rebuild.py
-  
-  ./symfony cc
-  ./symfony project:optimize frontend
+	./symfony cc
+	./symfony project:optimize frontend
