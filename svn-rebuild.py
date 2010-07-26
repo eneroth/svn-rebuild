@@ -7,7 +7,7 @@ from os import listdir, mkdir
 # returns as a dictionary, where the key is the base
 # folder, and the values lists with all .svn folders
 # under the base folder. All absolute paths.
-# ------------------------------------------------------
+# ---------------------------------------------------------
 def findSvnRepos(folderToSearch):
   svnFolders      = {}
   foldersToSearch = [folderToSearch]
@@ -39,6 +39,7 @@ def findSvnRepos(folderToSearch):
 
 
 # Formatting functions
+# ---------------------------------------------------------
 def getEscapeChars(inString):
   return '\b' * len(inString)
 
@@ -56,7 +57,9 @@ def renderPercentage(num, max):
   percentage = int(num/max*100)
   return getLeadingFiller(percentage, 100) + str(percentage) +  "%"
 
+
 # Repair SVN directories. Print status while it's happening
+# ---------------------------------------------------------
 def repairSvnDirs(repos):
   svnStructure = ['prop-base', 'props', 'text-base', 'tmp', join('tmp','prop-base'), join('tmp','props'), join('tmp','text-base')]
   
@@ -85,6 +88,8 @@ def repairSvnDirs(repos):
   print("\nRebuilt", rebuildCount, "of", dirCount, "directories.")
   
   
+# Clean and update SVN directories.
+# ---------------------------------------------------------
 def updateSvnDirs(repos):
   for repoIndex, repo in enumerate(repos.keys()):
     repoString = renderRepoCounter(repoIndex+1, len(repos)) + " Cleaning " + split(repo)[1] + "..."
@@ -96,10 +101,11 @@ def updateSvnDirs(repos):
     repoString = renderRepoCounter(repoIndex+1, len(repos)) + " Updating " + split(repo)[1] + "..."
     print(repoString)
     os.system("svn update " + repo)
-    
-# Basic settings
+
+
+
+# Default settings
 # ------------------------------------------------------
-# .svn folder structure
 startDir     = abspath(os.getcwd())
 
 print("Locating SVN directories...")
