@@ -5,7 +5,7 @@ SVN-Rebuild is designed to repair, clean, and update SVN repositories situated a
 
 The Problem
 ---
-When SVN folders are put in a git project, empty folders inside the .svn folder disappear. 
+When SVN projects are placed in a git project, empty folders inside the .svn folder disappear. 
 
 The solution
 ---
